@@ -26,7 +26,7 @@ variable "address_space" {
   type        = list(string)
 }
 
-variable "subnet_name" {
+variable "priv_subnet_name" {
   description = "The name for the subnet"
   type        = string
 }
@@ -100,4 +100,118 @@ variable "pub_ip_name" {
 variable "vm_name"{
   description = "The VM's name"
   type        = string
+}
+
+variable nsg_name {
+  description = "VM's NSG name"
+  type = string
+  default = "${var.prefix}-nsg"
+}
+
+variable nsg-rule_name {
+  description = "VM's NSG's rule name"
+  type = string
+  default = "${var.prefix}-nsg_allow-ssh"
+}
+
+variable nsgRule_priority {
+  description = "Priority of the NSG rule allow_ssh"
+  type = string
+  default = 1001
+}
+
+variable nsgRule_direction {
+  description = "Port's opening direction"
+  type = string
+  default = "Inbound"
+}
+
+variable nsgRule_access {
+  description = "Port's opening direction access"
+  type = string
+  default = "Allow"
+}
+
+variable nsgRule_protocol {
+  description = "Allow ssh protocol type"
+  type = string
+  default = "tcp"
+}
+
+variable nsgRule_source_port_range {
+  description = "Authorised / Denied Port ou Range for traffic"
+  type = string
+  default = "*"
+}
+
+variable nsgRule_destination_port_range {
+  description = "Destination port to open"
+  type = string
+  default = "22"
+}
+
+variable nsgRule_source_address_prefix {
+  description = "Authorised IP range for traffic source"
+  type = string
+  default = "*"
+}
+
+variable nsgRule_destination_address_prefix {
+  description = "Authorised IP range for traffic destination"
+  type = string
+  default = "*"
+}
+
+variable nsg-rule_name2 {
+  description = "2nd VM's NSG's Rule Name"
+  type = string
+  default = "${var.prefix}-nsg_allow-outbound"
+}
+
+variable nsgRule_priority2 {
+  description = "Priority of the NSG rule allow-outbound"
+  type = string
+  default = 2001
+}
+
+variable nsgRule_direction2 {
+  description = "Port opening2 direction"
+  type = string
+  default = "Outbound"
+}
+
+variable nsgRule_access2 {
+  description = "Port opening2 direction access"
+  type = string
+  default = "Allow"
+}
+
+variable nsgRule_protocol2 {
+  description = "Allow ssh2 protocol type"
+  type = string
+  default = "tcp"
+}
+
+variable nsgRule_source_port_range2 {
+  description = "Authorised / Denied Port ou Range for traffic"
+  type = string
+  default = "*"
+}
+
+variable nsgRule_destination_port_range2 {
+  description = "Destination port2 to open"
+  type = string
+  default = "*"
+}
+
+variable nsgRule_source_address_prefix2 {
+  description = "Authorised IP range for traffic source"
+  type = string
+  default = "*"
+}
+
+variable nsgRule_destination_address_prefix2 {
+  description = "Authorised IP range for traffic destination"
+  type = string
+  default = "*"
 }
