@@ -105,13 +105,13 @@ variable "vm_name"{
 variable nsg_name {
   description = "VM's NSG name"
   type = string
-  default = "${var.prefix}-nsg"
+  default = "b13-ely-nsg"
 }
 
 variable nsg-rule_name {
   description = "VM's NSG's rule name"
   type = string
-  default = "${var.prefix}-nsg_allow-ssh"
+  default = "b13-ely-nsg_allow-ssh"
 }
 
 variable nsgRule_priority {
@@ -165,7 +165,7 @@ variable nsgRule_destination_address_prefix {
 variable nsg-rule_name2 {
   description = "2nd VM's NSG's Rule Name"
   type = string
-  default = "${var.prefix}-nsg_allow-outbound"
+  default = "b13-ely-nsg_allow-outbound"
 }
 
 variable nsgRule_priority2 {
