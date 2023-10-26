@@ -32,7 +32,7 @@ resource "azurerm_nat_gateway" "nat_gw" {
 # Creation NAT Gateway Association
 resource "azurerm_subnet_nat_gateway_association" "subnet_nat_gw_assoc" {
   count                = "${var.use_nat_gateway ? 1 : 0}"
-  subnet_id            = "${azurerm_subnet.subnet.id}"
+  subnet_id            = "${azurerm_subnet.priv_subnet.id}"
   nat_gateway_id       = "${azurerm_nat_gateway.nat_gw.*.id[0]}"
 }
 
@@ -61,7 +61,7 @@ resource "azurerm_route_table" "rt" {
 
 # Creation Route Table Association
 resource "azurerm_subnet_route_table_association" "subnet_rt_assoc" {
-  subnet_id      = "${azurerm_subnet.subnet.id}"
+  subnet_id      = "${azurerm_subnet.priv_subnet.id}"
   route_table_id = "${azurerm_route_table.rt.id}"
 }
 
@@ -82,7 +82,7 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.subnet.id
+    subnet_id                     = azurerm_subnet.priv_subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = "${azurerm_public_ip.vm_public_ip.id}"
   }
