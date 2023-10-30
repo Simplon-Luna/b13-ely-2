@@ -86,34 +86,34 @@ resource "azurerm_network_interface_security_group_association" "nsgAssociation"
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-# Creation VM
-resource "azurerm_linux_virtual_machine" "red-vm" {
-  name                = "${var.vm_name}"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
-  network_interface_ids = [azurerm_network_interface.nic.id]
+# # Creation VM
+# resource "azurerm_linux_virtual_machine" "red-vm" {
+#   name                = "${var.vm_name}"
+#   location            = "${var.location}"
+#   resource_group_name = "${azurerm_resource_group.rg.name}"
+#   network_interface_ids = [azurerm_network_interface.nic.id]
 
-  size                = "${var.vm_size}"
-  admin_username      = "adminuser"
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/git/b13-ely/.ssh/ssh.pub")
-  }
+#   size                = "${var.vm_size}"
+#   admin_username      = "adminuser"
+#   admin_ssh_key {
+#     username   = "adminuser"
+#     public_key = file("~/git/b13-ely/.ssh/ssh.pub")
+#   }
 
-  os_disk {
-    caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
-  }
+#   os_disk {
+#     caching              = "ReadWrite"
+#     storage_account_type = "Premium_LRS"
+#   }
 
-  source_image_reference {
-    publisher = "RedHat"
-    offer     = "RHEL"
-    sku       = "88-gen2"
-    version   = "latest"
-  }
+#   source_image_reference {
+#     publisher = "RedHat"
+#     offer     = "RHEL"
+#     sku       = "88-gen2"
+#     version   = "latest"
+#   }
 
-  computer_name  = "${var.vm_name}"
- }
+#   computer_name  = "${var.vm_name}"
+#  }
 
 #### Unused resources ####
 

@@ -36,6 +36,11 @@ variable "subnet_address_prefixes" {
   type        = list(string)
 }
 
+variable "vm_name"{
+  description = "The VM's name"
+  type        = string
+}
+
 variable "vm_size" {
   description = "The VM size for the nodes in AKS cluster"
   type        = string
@@ -80,11 +85,6 @@ variable "vm_size" {
 variable "pub_ip_name" {
   description = "Name of the Public IP for VM"
   type = string
-}
-
-variable "vm_name"{
-  description = "The VM's name"
-  type        = string
 }
 
 variable nsg_name {
