@@ -36,61 +36,46 @@ variable "subnet_address_prefixes" {
   type        = list(string)
 }
 
-variable "aks_name" {
-  description = "The name for the AKS cluster"
-  type        = string
-}
-
-variable "node_pool_name" {
-  description = "The name for the default node pool in AKS"
-  type        = string
-}
-
-variable "node_count" {
-  description = "The node count for the AKS cluster"
-  type        = number
-}
-
 variable "vm_size" {
   description = "The VM size for the nodes in AKS cluster"
   type        = string
 }
 
-variable "use_nat_gateway" {
-  description = "Boolean indicating whether to use NAT Gateway"
-  type        = bool
-  default     = false
-}
+# variable "use_nat_gateway" {
+#   description = "Boolean indicating whether to use NAT Gateway"
+#   type        = bool
+#   default     = false
+# }
 
-variable "nat_gateway_name" {
-  description = "The name of the NAT Gateway"
-  type        = string
-  default     = "myNATGateway"
-}
+# variable "nat_gateway_name" {
+#   description = "The name of the NAT Gateway"
+#   type        = string
+#   default     = "myNATGateway"
+# }
 
-variable "nginx_ingress_ip_name" {
-  description = "The name of the public IP address resource for the NGINX Ingress."
-  type        = string
-  default     = "nginx-ingress-ip"
-}
+# variable "nginx_ingress_ip_name" {
+#   description = "The name of the public IP address resource for the NGINX Ingress."
+#   type        = string
+#   default     = "nginx-ingress-ip"
+# }
 
-variable "nginx_ingress_ip_sku" {
-  description = "The SKU for the public IP address of the NGINX Ingress. Can be Basic or Standard."
-  type        = string
-  default     = "Standard"
-}
+# variable "nginx_ingress_ip_sku" {
+#   description = "The SKU for the public IP address of the NGINX Ingress. Can be Basic or Standard."
+#   type        = string
+#   default     = "Standard"
+# }
 
-variable "route_table_name" {
-  description = "The name of the Route Table"
-  type        = string
-  default     = "myRouteTable"
-}
+# variable "route_table_name" {
+#   description = "The name of the Route Table"
+#   type        = string
+#   default     = "myRouteTable"
+# }
 
-variable "next_hop_ip" {
-  description = "The IP of the next hop (for example: a firewall or other device)"
-  type        = string
-  default     = ""  # By default, leave this blank, and enforce its value when calling the module.
-}
+# variable "next_hop_ip" {
+#   description = "The IP of the next hop (for example: a firewall or other device)"
+#   type        = string
+#   default     = ""  # By default, leave this blank, and enforce its value when calling the module.
+# }
 
 variable "pub_ip_name" {
   description = "Name of the Public IP for VM"
@@ -108,7 +93,7 @@ variable nsg_name {
   default = "b13-ely-nsg"
 }
 
-variable nsg-rule_name {
+variable nsg_rule_name {
   description = "VM's NSG's rule name"
   type = string
   default = "b13-ely-nsg_allow-ssh"
@@ -162,7 +147,7 @@ variable nsgRule_destination_address_prefix {
   default = "*"
 }
 
-variable nsg-rule_name2 {
+variable nsg_rule_name2 {
   description = "2nd VM's NSG's Rule Name"
   type = string
   default = "b13-ely-nsg_allow-outbound"
@@ -180,38 +165,8 @@ variable nsgRule_direction2 {
   default = "Outbound"
 }
 
-variable nsgRule_access2 {
-  description = "Port opening2 direction access"
-  type = string
-  default = "Allow"
-}
-
-variable nsgRule_protocol2 {
-  description = "Allow ssh2 protocol type"
-  type = string
-  default = "tcp"
-}
-
-variable nsgRule_source_port_range2 {
-  description = "Authorised / Denied Port ou Range for traffic"
-  type = string
-  default = "*"
-}
-
 variable nsgRule_destination_port_range2 {
   description = "Destination port2 to open"
-  type = string
-  default = "*"
-}
-
-variable nsgRule_source_address_prefix2 {
-  description = "Authorised IP range for traffic source"
-  type = string
-  default = "*"
-}
-
-variable nsgRule_destination_address_prefix2 {
-  description = "Authorised IP range for traffic destination"
   type = string
   default = "*"
 }
