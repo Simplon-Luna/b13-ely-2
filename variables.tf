@@ -41,10 +41,10 @@ variable "vm_name"{
   type        = string
 }
 
-# variable "vm_size" {
-#   description = "The VM size for the nodes in AKS cluster"
-#   type        = string
-# }
+variable "vm_size" {
+  description = "The VM size for the nodes in AKS cluster"
+  type        = string
+}
 
 # variable "use_nat_gateway" {
 #   description = "Boolean indicating whether to use NAT Gateway"
